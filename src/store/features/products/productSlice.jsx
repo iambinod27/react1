@@ -7,13 +7,17 @@ import {
 const initialState = {
   products: [],
   isLoading: false,
-  product: null,
+  product: {},
 };
 
 const productSlice = createSlice({
   name: "product",
   initialState,
-  reducers: {},
+  reducers: {
+    removeSelectedProduct: (state) => {
+      state.product = {};
+    },
+  },
   extraReducers: {
     [getProduct.pending]: (state) => {
       state.isLoading = true;
@@ -37,5 +41,7 @@ const productSlice = createSlice({
     },
   },
 });
+
+export const { removeSelectedProduct } = productSlice.actions;
 
 export default productSlice.reducer;
