@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Card = ({ item }) => {
   return (
     <div className="max-w-xs md:max-w-none rounded-md shadow-md bg-gray-50 text-gray-900">
@@ -11,9 +13,11 @@ const Card = ({ item }) => {
           <span className="block text-xs font-medium tracking-widest uppercase dark:text-gray-900">
             {item.category}
           </span>
-          <h2 className="text-xl font-semibold tracking-wide line-clamp-1">
-            {item.title}
-          </h2>
+          <Link to={`/product/${item.id}`}>
+            <h2 className="text-xl font-semibold tracking-wide line-clamp-1">
+              {item.title}
+            </h2>
+          </Link>
         </div>
         <p className="text-2xl py-2 text-red-600 font-semibold">
           ${item.price}

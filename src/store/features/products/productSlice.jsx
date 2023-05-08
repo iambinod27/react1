@@ -1,9 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getProduct } from "../../actions/products/productActions";
+import {
+  getProduct,
+  getSingleProduct,
+} from "../../actions/products/productActions";
 
 const initialState = {
   products: [],
   isLoading: false,
+  product: null,
 };
 
 const productSlice = createSlice({
@@ -19,6 +23,16 @@ const productSlice = createSlice({
       state.products = payload;
     },
     [getProduct.rejected]: (state) => {
+      state.isLoading = true;
+    },
+    [getSingleProduct.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [getSingleProduct.fulfilled]: (state, { payload }) => {
+      state.isLoading = false;
+      state.product = payload;
+    },
+    [getSingleProduct.rejected]: (state) => {
       state.isLoading = true;
     },
   },

@@ -13,3 +13,16 @@ export const getProduct = createAsyncThunk(
     }
   }
 );
+
+export const getSingleProduct = createAsyncThunk(
+  "getProduct/single",
+  async (payload, thunkAPI) => {
+    try {
+      const res = await ecommerceAxios.get(`/products/${payload}`);
+      const data = await res.data;
+      return data;
+    } catch (error) {
+      thunkAPI.rejectWithValue("Something went wrong");
+    }
+  }
+);
