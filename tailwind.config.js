@@ -4,6 +4,9 @@ const colors = require("tailwindcss/colors");
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    container: {
+      center: true,
+    },
     colors: {
       transparent: "transparent",
       current: "currentColor",
@@ -37,7 +40,7 @@ export default {
       fontFamily: {
         Poppins: ["Poppins", "sans-serif"],
       },
-      dropShadow: {
+      boxShadow: {
         drop: "0px 2px 16px 3px rgba(0, 0, 0, 0.04);",
       },
     },

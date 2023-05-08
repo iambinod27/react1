@@ -1,6 +1,6 @@
 const Navbar = () => {
   return (
-    <header className="p-4 dark:text-gray-100">
+    <header className="py-4 px-10 dark:text-gray-100 shadow-md">
       <div className="container flex justify-between h-16 mx-auto">
         <a
           rel="noopener noreferrer"
